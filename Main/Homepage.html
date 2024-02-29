@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cedar Food Market VIII</title>
+<meta charset="utf-8"
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+	* {
+ 		box-sizing: border-box;
+	}
+
+	body{
+		background-image: url('PicturesMain/Lebanon-Cedar-tree.jpg') ;
+		background-repeat: no-repeat;
+		background-attachment: fixed;
+  		background-size: cover;
+	}
+
+	a, h1, h2, h3, h4{
+		font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	}
+
+	h1{
+		font-size: 72px;
+	}
+
+	h2{
+		font-size: 40px;
+	}
+
+	/* ------------------------------ HEADER ------------------------------ */
+	header {
+  		padding: 25px;
+  		text-align: center;
+ 	 	font-size: 20px;
+  		color: white;
+		margin-top:200px;
+	}
+
+	/* ------------------------------ FIXED NAVIGATION BAR ------------------------------*/
+	nav ul {
+  		list-style-type: none;
+  		margin: 0px;
+  		padding: 0px;
+  		overflow: hidden;
+  		background-color: green;
+  		position: fixed;
+  		top: 0px;
+		left: 0px;
+  		width: 100%;
+	}
+
+	nav li {
+  		float: right;
+	}
+
+	nav li a {
+  		display: block;
+  		color: black;
+  		text-align: center;
+  		padding: 20px;
+  		text-decoration: none;
+	}
+
+	nav li a:hover:not(.active) {
+  		background-color: lightgreen;
+	}
+
+	.active {
+  		background-color: red;
+	}
+
+	/* ------------------------------ ARTICLE ------------------------------*/
+	article {
+  		float: left;
+ 		padding: 25px;
+		width: 100%;
+		text-align: center;
+ 		background-color: white;
+	}
+
+	article ul{
+		list-style-type: none;
+		overflow: hidden;
+		background-color: tan;
+		position: relative;
+		color:white;
+		bottom: 0px;
+		left: 0px;
+		width: 100%;
+	}
+
+	footer li {
+		float: left;
+  		display: block;
+  		color: black;
+  		padding: 5px;
+  		text-decoration: none;
+	}
+
+	footer li a:hover:not(.active) {
+  		background-color: red;
+	}
+
+	/* ------------------------------ Clear floats after the columns ------------------------------*/
+	section::after {
+  		content: "";
+  		display: table;
+  		clear: both;
+	}
+
+	/* ------------------------------ FOOTER ------------------------------*/
+	footer ul {
+		list-style-type: none;
+		overflow: hidden;
+		background-color: tan;
+		position: relative;
+		color:white;
+		bottom: 0px;
+		left: 0px;
+		width: 100%;
+	}
+
+	footer li {
+		float: left;
+  		display: block;
+  		color: black;
+  		padding: 5px;
+  		text-decoration: none;
+	}
+
+	footer li a:hover:not(.active) {
+  		background-color: red;
+	}
+</style>
+</head>
+
+<body>
+	<nav>
+		<ul>
+			<!-- Cedar Market Logo -->
+			<img src="PicturesMain/Cedar_Market.png" alt="Cedar_Market" width = "auto" height = "60px" style="float:left;">
+		
+			<!-- Navigation Bar Links -->
+			<li><a href="#contact-us"><b>CONTACT US</b></a></li>
+			<li><a href="#our-story"><b>OUR STORY</b></a></li>
+			<li><a href="#menu"><b>MENU</b></a></li>
+			<li><a class="active" href="Ordering/order.html"><b>ORDER</b></a></li>
+		</ul>
+	</nav>
+	
+	<section>
+		<header>
+			<!-- Cedar Market -->
+			<h1 style="color: white;">CEDAR MARKET</h1>
+		</header>
+	</section>
+
+	<section>
+		<article>
+			<h2>Food On Demand</h2>
+			<h3>From breakfast to lunch, we've got you covered.</h3>
+			<img src="PicturesMain/bagel-cream-cheese.jpg" alt="bagel-cream-cheese" style="width: 55vw; min-width: 330px;">
+		</article>
+	</section>
+	
+	<section>
+		<article>
+			<h2>Our Locations</h2>
+			<h3>Cedar 1 
+				<br>220 North Main Street
+				<br>Pleasantville, NJ</h3>
+			<h3>Cedar 5
+				<br>1500 West Riverside Drive
+				<br>Atlantic City, NJ</h3>
+			<h3>Cedar 7
+				<br>1125 Arctic Avenue
+				<br>Atlantic City, NJ</h3>
+			<h3>Cedar 8
+				<br>403 Pennsylvania Avenue
+				<br>Atlantic City, NJ </h3>
+			<h3>Cedar 10
+				<br>401 Tennessee Avenue
+				<br>Atlantic City</h3>
+			<h3>Cedar 12
+				<br>211 Melrose Avenue
+				<br>Atlantic City</h3>
+		</article>
+	</section>
+
+	<section>
+		<footer>
+			<ul>
+				<li><a href="#"><b>Facebook</b></a></li>
+				<li><a href="#"><b>Instagram</b></a></li>
+				<li><a href="#"><b>TikTok</b></a></li>
+			</ul>
+		</footer>
+	</section>
+</body>
+</html>
