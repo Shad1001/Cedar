@@ -4,6 +4,11 @@
         padding: 0;
         font-family: 'Kumbh Sans', sans-serif;
     }
+
+    html, body {
+        height: 100%;
+    }
+
     .navbar{
         background: #131313;
         height: 80px;
@@ -25,7 +30,6 @@
         padding: 0 50px;
     }
   
-
     .fa-gem{
         margin-right: 0.5rem;
     }
@@ -120,16 +124,17 @@
         display: flex;
         
         flex-direction: row; 
-    justify-content: flex-start; 
-    width: 100%;
-    margin-bottom: 30px;
+        justify-content: flex-start; 
+        width: 100%;
+        margin-bottom: 30px;
         margin-bottom: 30px;
     }
+
     #root{
         flex-grow: 1; 
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); 
-    grid-gap: 20px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); 
+        grid-gap: 20px;
     }
     .sidebar{
         width: 30%;
@@ -172,8 +177,30 @@
         border-bottom: 1px solid rgba(0,0,0,0.1);
     }
     
+	.row:after {
+            content: "";
+            display: table;
+            clear: both;
+    }
+        
+    .column {
+        float: left;
+        width: 33.33%;
+        padding-top: 50px;
+        text-align: center;
+      }
 
-  
+    .wrapper {
+        padding-top: 50px;
+        min-height: 100%;
+        height: auto !important;
+        height: 100%;
+        margin: 0 auto 0px; /* the bottom margin is the negative value of the footer's height */
+    }
+
+    .footer, .push {
+        height: 0px; /* .push must be the same height as .footer */
+    }
 
     
     
