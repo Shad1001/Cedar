@@ -36,6 +36,19 @@ class Customers(db.Model):
             "phoneNumber": self.phoneNumber
         }
     
+class Food(db.Model):
+    SKU = db.Column(db.Integer, primary_key=True)
+    skuDescription = db.Column(db.String(100), nullable=False)
+    price = db.Column(db.Float, nullable=False)
+    category = db.Column(db.String(100), nullable=False)
+
+    def to_json(self):
+        return{
+            "SKU": self.SKU,
+            "skuDescription": self.skuDescription,
+            "price": self.price,
+            "category": self.category
+        }
 
 class MenuItem(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -72,28 +85,28 @@ class OrderItem(db.Model):
         }
     
 class OrderDetails(db.Model):
-    purchaseID = db.Column(db.Integer, ForeignKey(OrderItem.purchaseID), primary_key=True)
-    id = db.Column(db.Integer, ForeignKey(MenuItem.id), primary_key=True)
+    purchaseID = db.Column(db.Integer, primary_key=True)
+    sku = db.Column(db.Integer, ForeignKey(Food.SKU), primary_key=True)
     quantity = db.Column(db.Integer, nullable=False)
-    price = db.Column(db.Float, ForeignKey(MenuItem.price))
+    price = db.Column(db.Float, ForeignKey(Food.price))
     extendedPrice = db.Column(db.Float, nullable=False)
 
     def to_json(self):
         return{
             "purchaseID": self.purchaseID,
-            "sku": self.id,
+            "sku": self.sku,
             "quantity": self.quantity,
             "price": self.price,
             "extendedPrice": self.extendedPrice
         }
 
 class AddOns(db.Model):
-    id = db.Column(db.Float, ForeignKey(MenuItem.id), primary_key=True)
-    name = db.Column(db.String(100), ForeignKey(MenuItem.name))
+    SKU = db.Column(db.Float, ForeignKey(Food.SKU), primary_key=True)
+    skuDescription = db.Column(db.String(100), ForeignKey(Food.skuDescription))
 
     def to_json(self):
         return{
-            "id": self.id,
-            "name": self.name
+            "SKU": self.SKU,
+            "skuDescription": self.skuDescription
         }
 
