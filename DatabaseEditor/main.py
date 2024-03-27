@@ -3,6 +3,7 @@ from config import app, db
 from models import MenuItem
 import sqlite3
 
+
 @app.route('/admin')
 def admin():
 
@@ -16,9 +17,11 @@ def add_food_item():
         return jsonify({"error": "Missing data for name, price or category"}), 400
     con = sqlite3.connect('mydatabase.db')
     cur = con.cursor()
-    # new_item = MenuItem(name=data['name'], id=data['id'], price=data['price'], category=data['category'])
-    cur.execute("INSERT INTO menu_item (id, name, price, category) VALUES( id=data['id'], name=data['name'], price=data['price'], category=data['category'] ")
+    new_item = name=data['name'], id=data['id'], price=data['price'], category=data['category']
+    sql = "INSERT INTO menu_item (id, name, price, category) VALUES ( %s, %s, %s, %s)"
+    con.execute(new_item, sql)
     #cur.execute("SELECT id, name, price, category FROM menu_item;")
+    con.close()
     db.session.commit()
     return jsonify({"message": "Food item added successfully."}), 201
 
