@@ -1,37 +1,39 @@
-from flask import Flask, render_template, request, jsonify, redirect, url_for
+from flask import Flask, render_template, request, jsonify
 from config import app, db
 from models import MenuItem
-import sqlite3
 
 
 @app.route('/admin')
 def admin():
-
     return render_template('admin.html')
 
-@app.route('/', methods=['GET','POST'])
+
+@app.route('/', methods=['POST'])
 def add_food_item():
-    data = request.get_json()
+    # Retrieve form data
+    name = request.json.get('name')
+    price = request.json.get('price')
+    category = request.json.get('category')
 
-    if 'name' not in data or 'price' not in data or 'category' not in data:
-        return jsonify({"error": "Missing data for name, price or category"}), 400
-    con = sqlite3.connect('mydatabase.db')
-    cur = con.cursor()
-    new_item = name=data['name'], id=data['id'], price=data['price'], category=data['category']
-    sql = "INSERT INTO menu_item (id, name, price, category) VALUES ( %s, %s, %s, %s)"
-    con.execute(new_item, sql)
-    #cur.execute("SELECT id, name, price, category FROM menu_item;")
-    con.close()
-    db.session.commit()
-    return jsonify({"message": "Food item added successfully."}), 201
+    # Check if all required data is present
+    if not name or not price or not category:
+        return jsonify({"error": "Missing data for name, price, or category"}), 400
 
-#@app.route('/menu')
-#def menu():
- #   return render_template('index.html')
+    try:
+        # Create new MenuItem object and add it to the session
+        new_item = MenuItem(name=name, price=price, category=category)
+        db.session.add(new_item)
+        db.session.commit()
+        return jsonify({"message": "Food item added successfully."}), 201
+    except Exception as e:
+        db.session.rollback()
+        return jsonify({"error": str(e)}), 500
+
+
 
 @app.route('/menu-item/<int:item_id>')
-def get_menu_item(id):
-    item = MenuItem.query.get(id)
+def get_menu_item(item_id):
+    item = MenuItem.query.get(item_id)
     if item:
         return jsonify(item.to_json()), 200
     else:
@@ -41,5 +43,6 @@ def get_menu_item(id):
 if __name__ == "__main__":
     with app.app_context():
         db.create_all()
+
 
     app.run(debug=True)
