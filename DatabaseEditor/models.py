@@ -2,6 +2,19 @@ from config import db
 import time
 from sqlalchemy import ForeignKey
 
+class Accounts(db.Model):
+    accountID = db.Column(db.Integer, primary_key=True)
+    email = db.Column(db.String(100), nullable=False)
+    password = db.Column(db.String(16), nullable=False)
+
+    def to_json(self):
+        return{
+        "accountID": self.accountID,
+        "email": self.email,
+        "password": self.password
+        }
+
+
 class Employees(db.Model):
     employeeID = db.Column(db.Integer, primary_key=True)
     lastName = db.Column(db.String(100), nullable=False)
