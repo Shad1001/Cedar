@@ -13,16 +13,25 @@ def admin():
 def add_food_item():
     data = request.get_json()
 
-    if 'name' not in data or 'price' not in data or 'category' not in data:
-        return jsonify({"error": "Missing data for name, price or category"}), 400
+    #if 'name' not in data or 'price' not in data or 'category' not in data:
+        #return jsonify({"error": "Missing data for name, price or category"}), 400
     con = sqlite3.connect('mydatabase.db')
     cur = con.cursor()
-    new_item = name=data['name'], id=data['id'], price=data['price'], category=data['category']
-    sql = "INSERT INTO menu_item (id, name, price, category) VALUES ( %s, %s, %s, %s)"
-    con.execute(new_item, sql)
+    print("connected cursor")
+    new_item = MenuItem(name=data['name'], price=data['price'], category=data['category'])
+    sql = "INSERT INTO menu_item (name, price, category) VALUES (?, ?, ?, ?)"
+    con.execute(sql, (data['id'], data['name'], data['price'], data['category']))
+    print("should have inserted")
     #cur.execute("SELECT id, name, price, category FROM menu_item;")
+    con.commit()
+    print("commited.")
     con.close()
-    db.session.commit()
+    print("closed.")
+    #db.session.commit()
+
+    if 'name' not in data or 'price' not in data or 'category' not in data:
+        return jsonify({"error": "Missing data for name, price or category"}), 400
+    
     return jsonify({"message": "Food item added successfully."}), 201
 
 #@app.route('/menu')
@@ -30,8 +39,8 @@ def add_food_item():
  #   return render_template('index.html')
 
 @app.route('/menu-item/<int:item_id>')
-def get_menu_item(id):
-    item = MenuItem.query.get(id)
+def get_menu_item(item_id):
+    item = MenuItem.query.get(item_id)
     if item:
         return jsonify(item.to_json()), 200
     else:
