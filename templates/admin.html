@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+   
+</head>
+<body>
+    <header>
+        <h1>Admin Dashboard</h1>
+    </header>
+    
+    <main>
+        <section id="add-food-item">
+            <h2>Add Food Item</h2>
+            <form action="/add-food-item" method="POST">  
+                <input type="text" name="name" placeholder="Name" required>
+                <input type="text" name="price" placeholder="Price $" required>
+                <input type="text" name="category" placeholder="Category" required>
+                <input type="text" name="image_url" placeholder="Image URL">
+                <button type="submit">Add Item</button>
+            </form>
+        </section>
+
+        <section id="delete-food-item">
+            <h2>Delete Food Item</h2>
+            <form action="/delete-food-item" method="POST">
+                <label for="item_id">Item ID:</label>
+                <input type="text" id="item_id" name="item_id" required><br>
+        
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required><br>
+        
+                <label for="price">Price:</label>
+                <input type="text" id="price" name="price" required><br>
+        
+                <label for="category">Category:</label>
+                <input type="text" id="category" name="category" required><br>
+        
+                <button type="submit">Delete Item</button>
+            </form>
+        </section>
+        <form action="/logout" method="post">
+            <button type="submit">Logout</button>
+        </form>
+        
+    </main>
+   
+</body>
+</html>

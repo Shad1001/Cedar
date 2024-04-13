@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Menu</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav class="navbar">
+		<div class="navbar_container"></div>	
+		<ul class="navbar__menu">
+			<li class="navbar__item"><a href="/" class="navbar__links">Home</a></li>
+			<li class="navbar__item"><a href="menu" class="navbar__links">Menu</a></li>
+			<li class="navbar__item"><a href="order" class="navbar__links">Order</a></li>
+			<li class="navbar__item"><a href="login" class="navbar__links">Login</a></li>
+			<li class="navbar__item"><a href="register" class="navbar__links">Register</a></li>
+		</ul>
+		</div>
+	</nav>
+
+    <div class = "wrapper">
+        <div class = "row">
+            <div class = "column" style="width: 75%; height: 100vh; background-color: white">
+                <h2 style = "background-color: red; padding: 5px;">Cedar Food Market Menu</h2>
+
+                {% for food in foodData %}
+                <form action="/add-cart-item" method="POST">
+                    <img src="{{food.image}}" style="width:25px; height:25px">
+                    {{food.name}}: ${{food.price}}
+                    <button type="submit">Add to Cart</button>
+                </form>
+                {% endfor %}
+
+            </div>
+            <div class = "column" style="width: 25%; height: 750vh; background-color: #DCDCDC">
+                <h2 style = "background-color: green; padding: 5px;">My Cart</h2>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
