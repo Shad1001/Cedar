@@ -2,7 +2,8 @@ from flask import Flask, render_template, request, redirect, session, url_for
 from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
 from flask_migrate import Migrate
-
+from datetime import datetime
+import pytz
 
 app = Flask(__name__)
 CORS(app)
@@ -127,7 +128,12 @@ def delete_food_item():
 @app.route('/menu')
 def menu():
     food_items = FoodItem.query.all()
+
+    #This is a function that will redirect the user if they hit the order tab outside of the time when the store is open (from 11AM to 7PM)
+    #if datetime.now(tz_NY) > 06:59:59 and datetime.now(tz_NY) < 23:00:00  
     return render_template('menu.html', food_items=food_items)
+    #else
+    #return "The store is currently closed and orders are not available to be taken."
 
 if __name__ == "__main__":
     with app.app_context():
