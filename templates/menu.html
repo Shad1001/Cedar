@@ -3,101 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <title>Menu</title>
-    <style>
-         body {
-            display: flex;
-            justify-content: space-between;
-        }
-        .content-container {
-            flex-grow: 1; 
-        }
-        .navbar {
-            background-color: rgb(17, 144, 43); /* Green color */
-            padding: 10px 20px; 
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            color: white;
-        }
-
-        .navbar a {
-            color: white;
-            text-decoration: none;
-            padding: 10px;
-        }
-
-        .navbar a:hover {
-            background-color: #0d9435; /* Darker green color on hover */
-        } 
-
-        #menu-list {
-            display: flex;
-            flex-wrap: wrap;
-            padding: 0;
-            list-style-type: none;
-            justify-content: space-around;
-        }
-        #menu-list li {
-            border: 2px solid black; 
-            margin: 10px;
-            width: calc(25% - 20px); 
-            box-sizing: border-box;
-            text-align: center;
-            font-size: 20px;
-            position: relative; 
-        }
-        #menu-list li:before {
-            content: "";
-            display: block;
-            padding-top: 100%;
-        }
-        .add-btn {
-            position: absolute;
-            bottom: 30px;
-            left: 60%;
-            transform: translateX(-50%);
-            background-color: rgb(17, 144, 43);
-            color: white;
-            border: none;
-            cursor: pointer;
-        }
-        .sidebar {
-            width: 20%;
-            min-width: 200px; 
-            height: 100vh;
-            border-left: 2px solid #c0c0c0; 
-            padding: 20px;
-            box-sizing: border-box;
-        }
-    </style>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <div class="navbar">
-        <div>
-            <a href="/">Home</a>
+    <nav class="navbar">
+		<div class="navbar_container"></div>	
+		<ul class="navbar__menu">
+			<li class="navbar__item"><a href="/" class="navbar__links">Home</a></li>
+			<li class="navbar__item"><a href="menu" class="navbar__links">Menu</a></li>
+			<li class="navbar__item"><a href="order" class="navbar__links">Order</a></li>
+			<li class="navbar__item"><a href="login" class="navbar__links">Login</a></li>
+			<li class="navbar__item"><a href="register" class="navbar__links">Register</a></li>
+		</ul>
+		</div>
+	</nav>
+
+    <div class = "wrapper">
+        <div class = "row">
+            <div class = "column" style="width: 75%; height: 100vh; background-color: white">
+                <h2 style = "background-color: red; padding: 5px;">Cedar Food Market Menu</h2>
+
+                {% for food in foodData %}
+                <form action="/add-cart-item" method="POST">
+                    <img src="{{food.image}}" style="width:50px; height:50px">
+                    {{food.name}}: ${{food.price}}
+                </form>
+                {% endfor %}
+            </div>
         </div>
-        <div>
-            <a href="/signup">Sign Up</a>
-            <a href="/login">Login</a>
-        </div>
-    </div>
-    <div class="content-container">
-        <h2>Menu</h2>
-        <ul id="menu-list">
-            {% for food_item in food_items %}
-            <li id="item-{{ food_item.id }}">
-                {{ food_item.name }} - {{ food_item.price }} - {{ food_item.category }}
-                <button class="add-btn" onclick="addItem('{{ food_item.id }}')">Add to Cart</button>
-            </li>
-            {% endfor %}
-        </ul>
-    </div>
-    <div class="sidebar">
-        <h3>My Cart</h3>
-        
-        <div id="chart">Cart is empty</div>
     </div>
 
-   
 </body>
 </html>
