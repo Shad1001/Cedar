@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f6f6f6;
+            margin: 0;
+            padding: 20px;
+            color: #006241; 
+        }
+        header {
+            background-color: #006241; 
+            color: #fff;
+            padding: 10px 20px;
+            text-align: center;
+            font-size: 24px;
+        }
+        main {
+            margin-top: 20px;
+        }
+        section {
+            background: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1, h2 {
+            margin: 0 0 15px;
+        }
+        form {
+            display: grid;
+            grid-gap: 10px;
+            grid-template-columns: 1fr;
+        }
+        input[type="text"], button {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #00704A;
+            color: white;
+            cursor: pointer;
+            border: none;
+        }
+        button:hover {
+            background-color: #005838; 
+        }
+        label {
+            color: #006241; 
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Admin Dashboard</h1>
+    </header>
+    
+    <main>
+        <section id="add-food-item">
+            <h2>Add Food Item</h2>
+            <form action="/add-food-item" method="POST">  
+                <input type="text" name="name" placeholder="Name" required>
+                <input type="text" name="price" placeholder="Price $" required>
+                <input type="text" name="category" placeholder="Category" required>
+                <input type="text" name="image_url" placeholder="Image URL">
+                <button type="submit">Add Item</button>
+            </form>
+        </section>
+
+        <section id="delete-food-item">
+            <h2>Delete Food Item</h2>
+            <form action="/delete-food-item" method="POST">
+                <label for="item_id">Item ID:</label>
+                <input type="text" id="item_id" name="item_id" required><br>
+        
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required><br>
+        
+                <label for="price">Price:</label>
+                <input type="text" id="price" name="price" required><br>
+        
+                <label for="category">Category:</label>
+                <input type="text" id="category" name="category" required><br>
+        
+                <button type="submit">Delete Item</button>
+            </form>
+        </section>
+       
+        <button class="button" onclick="location.href='/'">Log Out</button>
+           
+        </form>
+    </main>
+   
+</body>
+</html>
