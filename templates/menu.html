@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Menu</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav class="navbar">
+		<div class="navbar_container"></div>
+		<ul class="navbar__menu">
+			<li class="navbar__item"><a href="/" class="navbar__links">Home</a></li>
+			<li class="navbar__item"><a href="menu" class="navbar__links">Menu</a></li>
+			<li class="navbar__item"><a href="order" class="navbar__links">Order</a></li>
+			<li class="navbar__item"><a href="login" class="navbar__links">Login</a></li>
+			<li class="navbar__item"><a href="register" class="navbar__links">Register</a></li>
+		</ul>
+	</nav>
+
+    <div class = "wrapper" style="padding-left:250px; padding-right:250px;">
+        <div class = "row">
+            <div class = "column" style="width: 100%; background-color: white">
+                <h2 style = "background-color: red; padding: 5px; text-align:center">Cedar Food Market Menu</h2>
+            </div>
+        </div>
+
+        <div class = "row">
+            <div class = "column" style="width: 25%; height: 125vh; background-color: #D0D0D0; padding:25px;">
+                <center>
+                <ul style="list-style-type:none">
+                    <li><h3>Food Categories</h3></li> <br>
+                    <li>Breakfast</li> <br>
+                    <li>Appetizers</li> <br>
+                    <li>Cold Sandwiches</li>
+                </ul>
+                </center>
+            </div>
+
+            <div class = "column" style="width: 75%; height: 125vh; background-color: #DCDCDC; padding:25px;">
+                <h3 id="Breakfast">Breakfast</h3>
+                {% for food in breakfast%}
+                    {{food.name}}: ${{food.price}} <br>
+                {% endfor %} <br>
+
+                <h3 id="Appetizers">Appetizers</h3>
+                {% for food in appetizers%}
+                    {{food.name}}: ${{food.price}} <br>
+                {% endfor %} <br>
+
+                <h3 id="Cold Sandwiches">Cold Sandwiches</h3>
+                {% for food in coldSandwiches%}
+                    {{food.name}}: ${{food.price}} <br>
+                {% endfor %} <br>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

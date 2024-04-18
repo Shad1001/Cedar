@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login - Cedar Market</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+    }
+
+    .login-container {
+        background-color: white;
+        width: 400px;
+        margin: 50px auto;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px 0 rgba(0,0,0,0.1);
+    }
+
+    h2 {
+        color: #1e3932;
+        font-size: 24px;
+        text-align: center;
+    }
+
+    form {
+        margin-top: 20px;
+    }
+
+    label {
+        color: #1e3932;
+        display: block;
+        margin: 10px 0 5px;
+    }
+
+    input[type="email"], input[type="password"] {
+        width: calc(100% - 22px);
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    input[type="submit"] {
+        background-color: #00704a;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+        width: 100%;
+    }
+
+    input[type="submit"]:hover {
+        background-color: #005c39;
+    }
+
+    footer {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    footer a {
+        color: #00704a;
+        text-decoration: none;
+    }
+
+    footer a:hover {
+        text-decoration: underline;
+    }
+</style>
+</head>
+<body>
+
+    <nav class="navbar">
+		<div class="navbar_container"></div>
+		<ul class="navbar__menu">
+			<li class="navbar__item"><a href="/" class="navbar__links">Home</a></li>
+			<li class="navbar__item"><a href="menu" class="navbar__links">Menu</a></li>
+			<li class="navbar__item"><a href="order" class="navbar__links">Order</a></li>
+			<li class="navbar__item"><a href="login" class="navbar__links">Login</a></li>
+			<li class="navbar__item"><a href="register" class="navbar__links">Register</a></li>
+		</ul>
+	</nav>
+
+<div class="login-container">
+    <h2>Login to Your Account</h2>
+    <form action="/submit-login" method="POST">
+        <label for="email">Email Address:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+
+        <input type="submit" value="Log In">
+    </form>
+    <footer>
+        <p>Don't have an account? <a href="/signup">Sign up</a></p>
+    </footer>
+</div>
+</body>
+</html>

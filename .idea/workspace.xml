@@ -4,7 +4,34 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ce804220-0cf2-42b1-88e5-a99992ade739" name="Changes" comment="" />
+    <list default="true" id="ce804220-0cf2-42b1-88e5-a99992ade739" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GianCode" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OLDGianCode/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OLDGianCode/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OLDGianCode/.idea/GianCode.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OLDGianCode/.idea/GitHub.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OLDGianCode/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OLDGianCode/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OLDGianCode/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OLDGianCode/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OLDGianCode/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OLDGianCode/GianCode" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OLDGianCode/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/OLDGianCode/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OLDGianCode/cedar 2/app.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OLDGianCode/cedar 2/instance/mydatabase.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OLDGianCode/instance/mydatabase.db" beforeDir="false" afterPath="$PROJECT_DIR$/OLDGianCode/instance/mydatabase.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OLDGianCode/templates/admin.html" beforeDir="false" afterPath="$PROJECT_DIR$/OLDGianCode/templates/admin.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OLDGianCode/templates/order.html" beforeDir="false" afterPath="$PROJECT_DIR$/OLDGianCode/templates/order.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cedar 2/app.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cedar 2/instance/mydatabase.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/instance/mydatabase.db" beforeDir="false" afterPath="$PROJECT_DIR$/instance/mydatabase.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/order.html" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,21 +40,21 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 5
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
   <component name="ProjectId" id="2f0Rvc27Tjex84wzw2aU4magPNA" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.app.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "Karishma"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.app.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Gian&quot;
   }
-}]]></component>
+}</component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -45,5 +72,16 @@
       <updated>1712936240922</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

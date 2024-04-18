@@ -4,48 +4,78 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
-   
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <header>
-        <h1>Admin Dashboard</h1>
-    </header>
-    
-    <main>
-        <section id="add-food-item">
-            <h2>Add Food Item</h2>
-            <form action="/add-food-item" method="POST">  
-                <input type="text" name="name" placeholder="Name" required>
-                <input type="text" name="price" placeholder="Price $" required>
-                <input type="text" name="category" placeholder="Category" required>
-                <input type="text" name="image_url" placeholder="Image URL">
-                <button type="submit">Add Item</button>
-            </form>
-        </section>
+    <nav class="navbar">
+		<div class="navbar_container"></div>
 
-        <section id="delete-food-item">
-            <h2>Delete Food Item</h2>
-            <form action="/delete-food-item" method="POST">
-                <label for="item_id">Item ID:</label>
-                <input type="text" id="item_id" name="item_id" required><br>
-        
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required><br>
-        
-                <label for="price">Price:</label>
-                <input type="text" id="price" name="price" required><br>
-        
-                <label for="category">Category:</label>
-                <input type="text" id="category" name="category" required><br>
-        
-                <button type="submit">Delete Item</button>
-            </form>
+		<ul class="navbar__menu">
+			<li class="navbar__item"><a href="/" class="navbar__links">Home</a></li>
+			<li class="navbar__item"><a href="menu" class="navbar__links">Menu</a></li>
+			<li class="navbar__item"><a href="order" class="navbar__links">Order</a></li>
+			<li class="navbar__item"><a href="login" class="navbar__links">Login</a></li>
+			<li class="navbar__item"><a href="register" class="navbar__links">Register</a></li>
+		</ul>
+		</div>
+	</nav>
+
+    <div class="wrapper">
+        <h1 style="text-align:center">Admin Dashboard</h1><br>
+
+        <div class="class2">
+        <section id="add-food-item">
+                    <br>
+                    <br>
+                    <center> <h2>Add Food Item</h2></center>
+                    <br>
+                    <br>
+                    <center>
+                        <form action="/add-food-item" method="POST">
+                            <input type="text" name="name" placeholder="Name" required><br>
+                            <input type="text" name="price" placeholder="Price $" required><br>
+                            <input type="text" name="category" placeholder="Category" required><br>
+                            <br>
+                            <button type="submit">Add Item</button>
+                        </form>
+                    </center>
         </section>
-        <form action="/logout" method="post">
+        </div>
+
+        <br>
+
+        <div class="class2">
+        <section id="delete-food-item">
+            <br>
+            <br>
+            <center><h2>Delete Food Item</h2></center>
+            <br>
+            <br>
+            <center>
+                <form action="/delete-food-item" method="POST">
+                    <input type="text" name="name" placeholder="Name" required><br>
+                    <input type="text" name="price" placeholder="Price $" required><br>
+                    <input type="text" name="category" placeholder="Category" required><br>
+                    <br>
+                    <button type="submit">Delete Item</button>
+                </form>
+            </center>
+        </section>
+        </div>
+
+        <br>
+
+        <div class="class3">
+            <center>
+                <br>
+                <br>
+            <form action="/logout" method="post">
             <button type="submit">Logout</button>
-        </form>
-        
+            </form>
+            </center>
+        </div>
     </main>
+    </div>
    
 </body>
 </html>

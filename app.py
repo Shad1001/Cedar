@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, redirect, session, url_for
 from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
 from flask_migrate import Migrate
+import datetime
 
 app = Flask(__name__)
 CORS(app)
@@ -27,7 +28,6 @@ class Food(db.Model):
     name = db.Column(db.String(100), nullable=False)
     price = db.Column(db.Float, nullable=False)
     category = db.Column(db.String(100), nullable=False)
-    image = db.Column(db.BLOB)
 
 ##################################################
 #   Order Class
@@ -73,9 +73,8 @@ def add_food_item():
         name = request.form['name']
         price = request.form['price']
         category = request.form['category']
-        image_url = request.form.get('image_url', '') 
         
-        new_item = FoodItem(name=name, price=float(price), category=category, image_url=image_url)
+        new_item = Food(name=name, price=float(price), category=category)
         db.session.add(new_item)
         db.session.commit()
         return redirect(url_for('admin'))
@@ -87,13 +86,11 @@ def add_food_item():
 ##################################################
 @app.route('/delete-food-item', methods=['POST'])
 def delete_food_item():
-    item_id = request.form['item_id']
     name = request.form['name']
     price = request.form['price']
     category = request.form['category']
 
-   
-    item = FoodItem.query.filter_by(id=item_id, name=name, price=price, category=category).first()
+    item = Food.query.filter_by(name=name, price=float(price), category=category).first()
     db.session.delete(item)
     db.session.commit()
     return redirect(url_for('admin'))    
@@ -132,7 +129,7 @@ def login():
 
         user = User.query.filter_by(username='admin').first()  
         if user:
-            user.isAdmin = True  
+            user.isAdmin == True
             db.session.commit()
 
         if user and user.password == password:
@@ -144,32 +141,45 @@ def login():
     return render_template('login.html')
 
 ##################################################
-#   app.route for /order
+#   app.route for /menu
 ##################################################
-@app.route('/order')
+@app.route('/menu')
 def menu():
-    foodData = Food.query.all()
-    return render_template('order.html', foodData=foodData)
+    breakfast = Food.query.filter(Food.category == "Breakfast")
+    appetizers = Food.query.filter(Food.category == "Appetizers")
+    coldSandwiches = Food.query.filter(Food.category == "Cold Sandwiches")
+
+    return render_template('menu.html', breakfast=breakfast, appetizers=appetizers, coldSandwiches=coldSandwiches)
 
 ##################################################
 #   app.route for /add-order-item
 ##################################################
 @app.route('/add-order-item', methods=['GET', 'POST'])
-def add_cart_item():
+def add_order_item():
     if request.method == 'POST':
-        
-        cursor.execute('INSERT')
+        date = datetime.datetime.now()
+        subTotal = 0
+        tax = 0.06625
+        total = 0
+        userID = 1
 
-        #FoodItem.query.
-        cartID = FoodItem.id
-        price = FoodItem.price
+        new_Order = Order(date=datetime, subTotal=float(subTotal),
+                         tax=float(tax), total=float(total), userID=userID)
+        db.session.add(new_Order)
 
-        new_item = Cart(cartID=cartID, price=float(price))
+        finish == False
+        while finish != True:
+            new_Order_Detail = Order_Detail(orderID=orderID, foodID=foodID, quantity=quantity,
+                                            price=float(price), extendedPrice=float(extendedPrice))
+            db.session.add(new_Order_Detail)
 
-        db.session.add(new_item)
-        db.session.commit()
+            if finish == True: #request.method == finish button
+                break
+
+            db.session.commit()
+
         return redirect(url_for('order'))
-    
+
     else:
         return 'Cart is empty'
 
