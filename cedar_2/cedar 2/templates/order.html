@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order</title>
+    <style>
+        body {  font-family: 'Segoe UI', Arial, sans-serif;  margin: 0;  padding: 0;  background: #f4f4f4;  }
+        .navbar {  background-color: #00704A; color: white; padding: 10px 20px; display: flex; justify-content: space-between; align-items: center; font-family: 'Segoe UI', Arial, sans-serif  }
+        .navbar a {  color: white;  text-decoration: none;  padding: 10px 15px;  font-weight: bold;  }
+        .navbar a:hover, .navbar a.active {  background-color: #005830; border-radius: 5px;  }
+        .menu-container {  padding: 20px;  display: flex;  flex-wrap: wrap;  justify-content: space-around;  gap: 20px;  }
+        .menu-item {  background: white;  padding: 15px;  border-radius: 8px;  box-shadow: 0 2px 5px rgba(0,0,0,0.2);  width: 300px;  margin-top: 20px;  }
+        .add-to-cart {  background: #4CAF50;  color: white;  border: none;  padding: 10px 15px;  cursor: pointer;  border-radius: 5px;  text-align: center;  }
+        .add-to-cart:hover {  background-color: #45a049;  }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="/" class="logo">Menu</a>
+        <div>
+            <a href="/">Home</a>
+            <a href="/specials">Specials</a>
+            <a href="/order">Order Now</a>
+            <a href="/signup">Sign Up</a>
+            <a href="/login">Login</a>
+        </div>
+    </nav>
+
+    <div class="menu-container">
+        {% for item in food_items %}
+        <div class="menu-item">
+            <h3>{{ item.name }}</h3>
+            <p>Price: ${{ "%.2f"|format(item.price) }}</p>
+            <p>Category: {{ item.category }}</p>
+            <button type="button" class="add-to-cart" data-item-id="{{ item.id }}">Add to Cart</button>
+        </div>
+        {% endfor %}
+    </div>
+    <script src="/static/script.js"></script>
+</body>
+</html>

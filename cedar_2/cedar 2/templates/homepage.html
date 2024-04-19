@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cedar Food Market</title>
+    <style>
+        * {  box-sizing: border-box;  }
+        body {  background-image: url('Lebanon-Cedar-tree.jpg');  background-repeat: no-repeat;  background-attachment: fixed;  background-size: cover;  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;  }
+        nav ul {  list-style-type: none;  margin: 0;  padding: 0;  overflow: hidden;  background-color: #00704A;  position: fixed;  top: 0;  width: 100%;  z-index: 1000;  }
+        nav li {  float: right;  }
+        nav li a {  display: block;  color: white;  text-align: center;  padding: 14px 16px;  text-decoration: none;  }
+        nav li a:hover, nav li a.active {  background-color: #005C30;  }
+        header {  padding: 80px;  text-align: center;  color: white;  font-size: 27px;  background: rgba(0, 112, 74, 0.6);  }
+        section {  clear: both;  padding: 20px;  margin-top: 90px;  }
+        article {  background: rgba(255, 255, 255, 0.9);  padding: 20px;  margin: 10px;  border-radius: 8px;  }
+        footer {  background-color: rgba(0, 112, 74, 0.6);  color: white;  text-align: center;  padding: 10px;  position: fixed;  bottom: 0;  width: 100%;  }
+        footer a {  color: white;  text-decoration: none;  }
+        footer a:hover {  text-decoration: underline;  }
+        .button {  background: linear-gradient(to right, #4CAF50, #8BC34A);  border: none;  color: white;  padding: 10px 20px;  text-align: center;  text-decoration: none;  display: inline-block;  font-size: 16px;  margin: 4px 2px;  cursor: pointer;  border-radius: 20px;  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);  transition: all 0.3s ease 0s;  }
+        .button:hover {  background: linear-gradient(to right, #8BC34A, #4CAF50);  box-shadow: 0 6px 14px 0 rgba(0,0,0,0.25);  }
+        .button:active, .button:focus {  background-color: #3e8e41;  box-shadow: 0 5px 9px 0 rgba(0,0,0,0.3) inset;  }
+        .menu-categories {  display: grid;  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));  gap: 10px;  padding: 20px;justify-content: center;  }
+        .category-item {  border: 1px solid #ccc;  background-color: white;  border-radius: 10px;  text-align: center;  padding: 10px;  box-shadow: 0 2px 5px rgba(0,0,0,0.1);  overflow: hidden;  position: relative;  display: flex;  flex-direction: column;  align-items: center;  justify-content: center;  transition: transform 0.3s ease;  }
+        .category-item:hover {  transform: translateY(-5px);  box-shadow: 0 4px 8px rgba(0,0,0,0.2);  }
+        .category-icon {  max-width: 100%; 	height: auto;  display: block; 	margin-bottom: 10px;  }
+        .category-text {  margin-top: 5px;  font-size: 14px;  color: #333;  }
+    </style>
+</head>
+<body>
+    <a href="/">Home</a>
+    <nav>
+        <ul>
+            <li><a href="/signup">Sign Up</a></li>
+            <li><a href="/login">Login</a></li>
+            <li><a href="/order">Order</a></li>
+			<li><a href="/specials">Specials</a></li>
+            <li><a class="active" href="/menu">Menu</a></li>
+        </ul>
+    </nav>
+
+    <header>
+        <h1>Cedar Food Market</h1>
+        <p>Delicious meals for Everyone.</p>
+    </header>
+
+    <section>
+        <article>
+            <h2>Explore Our Menu</h2>
+            <p>Choose from a wide range of our signature dishes.</p>
+            <div class="menu-categories">
+                <div class="category-item">
+                    <img src="{{ url_for('static', filename='images/appetizers-icon.png') }}" alt="Appetizers">
+                    <div class="category-text">Home Fries</div>
+                </div>
+                <div class="category-item">
+					<img src="{{ url_for('static', filename='images/hot-sandwiches-icon.png') }}" alt="Hot Sandwiches">
+                    <div class="category-text">Hot Sandwiches</div>
+                </div>
+                <div class="category-item">
+                    <img src="{{ url_for('static', filename='images/cold-sandwiches-icon.png') }}" alt="Cold Sandwiches">
+                    <div class="category-text">Omelettes</div>
+                </div>
+                <div class="category-item">
+                    <img src="{{ url_for('static', filename='images/pizza.png') }}" alt="Bagel with Cheese">
+                    <div class="category-text">Bagel with Cheese</div>
+                </div>
+               
+            </div>
+            <button class="button" onclick="location.href='/menu'">View Menu</button>
+        </article>
+    </section>
+
+    <footer>
+        <a href="https://www.facebook.com/Cedarfoodmarket/">Facebook</a> |
+        <a href="https://www.instagram.com/explore/locations/244442825/cedar-food-market/">Instagram</a> |
+        <a href="#">TikTok</a>
+    </footer>
+</body>
+</html>

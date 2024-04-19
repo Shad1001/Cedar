@@ -1,0 +1,37 @@
+body {  font-family: 'Arial', sans-serif;  background-color: #f9f9f9;  margin: 20px;  }
+.menu-container {  display: grid;  grid-template-columns: repeat(5, 1fr);  gap: 20px;  padding: 20px;  }
+.menu-item {  background-color: #fff;  padding: 20px;  border-radius: 10px;  box-shadow: 0 4px 8px rgba(0,0,0,0.1);  display: flex;  flex-direction: column;  align-items: center;  justify-content: space-between;  }
+.menu-item h3 {  color: #333;  font-size: 20px;  text-align: center;  }
+.menu-item p {  color: #666;  font-size: 16px;  text-align: center;  }
+.add-to-cart {  padding: 10px 20px;  font-size: 16px;  color: white;  background-color: #4CAF50;  border: none;  border-radius: 5px;  cursor: pointer;  margin-top: 10px;  }
+.add-to-cart:hover {  background-color: #45a049;  }
+
+/*body {  font-family: 'Segoe UI', Arial, sans-serif;  margin: 0;  padding: 0;  background: #f4f4f4;  }
+.navbar {  background-color: #00704A; color: white; padding: 10px 20px; display: flex; justify-content: space-between; align-items: center; font-family: 'Segoe UI', Arial, sans-serif  }
+.navbar a {  color: white;  text-decoration: none;  padding: 10px 15px;  font-weight: bold;  }
+.navbar a:hover, .navbar a.active {  background-color: #005830; border-radius: 5px;  }
+.menu-container {  padding: 20px;  display: flex;  flex-wrap: wrap;  justify-content: space-around;  gap: 20px;  }
+.menu-item {  background: white;  padding: 15px;  border-radius: 8px;  box-shadow: 0 2px 5px rgba(0,0,0,0.2);  width: 300px;  margin-top: 20px;  }
+.add-to-cart {  background: #4CAF50;  color: white;  border: none;  padding: 10px 15px;  cursor: pointer;  border-radius: 5px;  text-align: center;  }
+.add-to-cart:hover {  background-color: #45a049;  }
+
+* {  box-sizing: border-box;  }
+body {  background-image: url('Lebanon-Cedar-tree.jpg');  background-repeat: no-repeat;  background-attachment: fixed;  background-size: cover;  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;  }
+nav ul {  list-style-type: none;  margin: 0;  padding: 0;  overflow: hidden;  background-color: #00704A;  position: fixed;  top: 0;  width: 100%;  z-index: 1000;  }
+nav li {  float: right;  }
+nav li a {  display: block;  color: white;  text-align: center;  padding: 14px 16px;  text-decoration: none;  }
+nav li a:hover, nav li a.active {  background-color: #005C30;  }
+header {  padding: 80px;  text-align: center;  color: white;  font-size: 27px;  background: rgba(0, 112, 74, 0.6);  }
+section {  clear: both;  padding: 20px;  margin-top: 90px;  }
+article {  background: rgba(255, 255, 255, 0.9);  padding: 20px;  margin: 10px;  border-radius: 8px;  }
+footer {  background-color: rgba(0, 112, 74, 0.6);  color: white;  text-align: center;  padding: 10px;  position: fixed;  bottom: 0;  width: 100%;  }
+footer a {  color: white;  text-decoration: none;  }
+footer a:hover {  text-decoration: underline;  }
+.button {  background: linear-gradient(to right, #4CAF50, #8BC34A);  border: none;  color: white;  padding: 10px 20px;  text-align: center;  text-decoration: none;  display: inline-block;  font-size: 16px;  margin: 4px 2px;  cursor: pointer;  border-radius: 20px;  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);  transition: all 0.3s ease 0s;  }
+.button:hover {  background: linear-gradient(to right, #8BC34A, #4CAF50);  box-shadow: 0 6px 14px 0 rgba(0,0,0,0.25);  }
+.button:active, .button:focus {  background-color: #3e8e41;  box-shadow: 0 5px 9px 0 rgba(0,0,0,0.3) inset;  }
+.menu-categories {  display: grid;  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));  gap: 10px;  padding: 20px;justify-content: center;  }
+.category-item {  border: 1px solid #ccc;  background-color: white;  border-radius: 10px;  text-align: center;  padding: 10px;  box-shadow: 0 2px 5px rgba(0,0,0,0.1);  overflow: hidden;  position: relative;  display: flex;  flex-direction: column;  align-items: center;  justify-content: center;  transition: transform 0.3s ease;  }
+.category-item:hover {  transform: translateY(-5px);  box-shadow: 0 4px 8px rgba(0,0,0,0.2);  }
+.category-icon {  max-width: 100%; 	height: auto;  display: block; 	margin-bottom: 10px;  }
+.category-text {  margin-top: 5px;  font-size: 14px;  color: #333;  }

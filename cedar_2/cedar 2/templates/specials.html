@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Specials Menu</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            background-color: #f4f4f4;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        .content-container {
+            width: 80%;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .navbar {
+            background-color: #00704A; 
+            padding: 10px 20px; 
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+            font-weight: bold;
+        }
+
+        .navbar a:hover {
+            background-color: #005838; 
+        } 
+
+        #menu-list {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 0;
+            list-style-type: none;
+            justify-content: flex-start;
+        }
+        #menu-list li {
+            border: 1px solid #ccc; 
+            margin: 10px;
+            width: calc(33% - 20px); 
+            box-sizing: border-box;
+            text-align: center;
+            font-size: 16px;
+            position: relative;
+            background-color: #fefefe;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        .add-btn {
+            background-color: #00704A;
+            color: white;
+            border: none;
+            cursor: pointer;
+            padding: 10px 20px;
+            font-size: 14px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="content-container">
+        <div class="navbar">
+            <a href="/">Home</a>
+            <div>
+                <a href="/signup">Sign Up</a>
+                <a href="/login">Login</a>
+                <a href="/menu">Regular Menu</a>
+            </div>
+        </div>
+        <h2>Specials Menu</h2>
+        <ul id="menu-list">
+            {% for food in foodSpecials %}
+            <li id="item-{{ food.foodID }}">
+                <strong>{{ food.name }}</strong> - ${{ food.price }}
+                <div>{{ food.category }}</div>
+            </li>
+            {% endfor %}
+        </ul>
+       
+
+    </div>
+</body>
+</html>
